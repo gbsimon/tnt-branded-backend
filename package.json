@@ -1,0 +1,27 @@
+{
+	"name": "tnt-branded-backend",
+	"version": "2.0.0",
+	"description": "WordPress plugin for customizing admin and login page appearance",
+	"main": "tnt-backend.php",
+	"scripts": {
+		"dev": "sass --watch src/scss:assets/css",
+		"build": "sass src/scss:assets/css --style=compressed",
+		"deploy": "npm run build && npm run package",
+		"package": "rm -f tnt-branded-backend.zip && zip -r tnt-branded-backend.zip . -x \"node_modules/*\" \".git/*\" \"*.map\" \"tnt-branded-backend.zip\" \"src/*\""
+	},
+	"keywords": [
+		"wordpress",
+		"plugin",
+		"admin",
+		"customization"
+	],
+	"author": "Simon Gauthier Boudreau (tom & tom)",
+	"license": "ISC",
+	"devDependencies": {
+		"sass": "^1.94.0"
+	},
+	"engines": {
+		"node": ">=14.0.0",
+		"npm": ">=6.0.0"
+	}
+}

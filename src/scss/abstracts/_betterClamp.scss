@@ -1,0 +1,14 @@
+@use "base-unit" as *;
+
+@function betterClamp($minSize, $maxSize: $minSize, $minWidth: $globalMinWidth, $maxWidth: $globalMaxWidth) {
+	// keep values in pixels (no conversion)
+	// do calculations
+	$slope: calc(($maxSize - $minSize) / ($maxWidth - $minWidth));
+	$yAxisIntersection: calc(-1 * $minWidth * $slope + $minSize);
+	$preferredValue: calc(#{$yAxisIntersection}px + #{calc($slope * 100vw)});
+	// output as pixels
+	$minSize: #{$minSize}px;
+	$maxSize: #{$maxSize}px;
+
+	@return clamp($minSize, $preferredValue, $maxSize);
+}

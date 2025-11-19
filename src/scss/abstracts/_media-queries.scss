@@ -1,0 +1,33 @@
+@use "breakpoints" as *;
+
+/* Remove hover on touch devices */
+@mixin hover {
+	@media (hover: hover) {
+		@content;
+	}
+}
+
+/* Use @include mq(size) {} for media query */
+
+@mixin mq($key) {
+	$size: map-get($breakpoints, $key);
+
+	@media only screen and (min-width: $size) {
+		@content;
+	}
+}
+
+/* Allows transitions and animations for prefers-reduced-motion: no-preference */
+@mixin motion {
+	@media (prefers-reduced-motion: no-preference) {
+		@content;
+	}
+}
+
+/* Print mode */
+@mixin print {
+	@media only print {
+		@content;
+	}
+}
+

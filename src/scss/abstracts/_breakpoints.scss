@@ -1,0 +1,13 @@
+$full: 1760px; // Take same value as --max-width
+
+$breakpoints: (
+	xs: 376px,
+	s: 575px,
+	sm: 767px,
+	m: 960px,
+	l: 1200px,
+	xl: 1400px,
+	full: $full,
+	1920: 1918px,
+);
+

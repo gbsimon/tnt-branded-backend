@@ -1,0 +1,308 @@
+// ============================================
+// Imports
+// ============================================
+
+@use "sass:color";
+@use "abstracts" as *;
+
+// ============================================
+// Font Declarations
+// ============================================
+
+@include font-face("Gotham-Bold", "Gotham-Bold");
+@include font-face("Gotham-Book", "Gotham-Book");
+
+// ============================================
+// Base Styles
+// ============================================
+
+body {
+	background: $color-bg;
+	margin: 0;
+	padding: 0;
+
+	&.login {
+		//display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+		justify-content: center;
+		align-items: center;
+		padding: $spacing-md;
+	}
+}
+
+p,
+label,
+input {
+	font-family: $font-book;
+	color: $color-text;
+}
+
+// ============================================
+// Login Container (Two-Column Layout)
+// ============================================
+
+#login {
+	display: flex;
+	background: $color-white;
+	border-radius: $border-radius-lg;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	min-height: 600px;
+	max-width: 1000px;
+	margin: 0 auto;
+	width: 100%;
+	padding: 0;
+	position: relative;
+
+	// Footer should be full width at bottom
+	.tnt-login-footer {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+		flex-direction: column;
+		min-height: auto;
+	}
+}
+
+// ============================================
+// Left Section (Welcome Message)
+// ============================================
+
+.tnt-login-left {
+	flex: 1;
+	background: var(--tnt-accent-color, $color-accent);
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	padding: betterClamp(24, 32) betterClamp(20, 100) betterClamp(40, 64);
+	color: $color-white;
+	min-width: 0;
+	border-radius: $border-radius-lg;
+
+	@media (max-width: $breakpoint-mobile) {
+		padding: $spacing-lg;
+		min-height: 200px;
+	}
+}
+
+.tnt-login-welcome {
+	text-align: left;
+	//max-width: 460px;
+
+	h2,
+	h3 {
+		font-family: $font-bold;
+		color: var(--tnt-accent-color-2, $color-accent-2);
+		margin: 0 0 $spacing-md 0;
+		line-height: 1.2;
+
+		text-wrap: balance;
+	}
+	h2 {
+		font-size: betterClamp(64);
+	}
+	h3 {
+		font-size: betterClamp(48);
+	}
+
+	p {
+		font-family: $font-book;
+		color: var(--tnt-accent-color-2, $color-accent-2);
+		font-size: betterClamp(40);
+		margin: $spacing-md 0 0 0;
+		margin-block-end: 0.5em;
+	}
+}
+
+// ============================================
+// Right Section (Login Form)
+// ============================================
+
+.tnt-login-right {
+	flex: 1;
+	background: $color-white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: $spacing-xl;
+	border: 2px solid var(--tnt-accent-color, $color-accent);
+	min-width: 0;
+	max-width: 380px;
+	border-radius: $border-radius-lg;
+
+	@media (max-width: $breakpoint-mobile) {
+		padding: $spacing-lg;
+	}
+}
+
+#login {
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+	background-color: var(--tnt-accent-color, $color-accent);
+
+	h1 {
+		margin: 0 0 40px 0;
+		padding: 0;
+		text-align: center;
+
+		a {
+			background-image: url("#{$path-images}/logo-tnt@x2.png");
+			/* Flexible sizing - adapts to logo aspect ratio */
+			width: auto;
+			max-width: 300px;
+			min-width: 150px;
+			height: 100px;
+			max-height: 120px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			margin: 0 auto;
+			display: block;
+			/* Maintain aspect ratio */
+			aspect-ratio: auto;
+		}
+	}
+
+	.message {
+		margin: 0 0 $spacing-md 0;
+		border-left-color: var(--tnt-accent-color, $color-accent);
+	}
+
+	form {
+		margin: 0;
+		padding: 0;
+		background: transparent;
+		border: none;
+		box-shadow: none;
+
+		p.submit {
+			.button-primary {
+				width: 100%;
+				background-color: var(--tnt-accent-color, $color-accent);
+				border-color: var(--tnt-accent-color, $color-accent);
+				color: var(--tnt-accent-color-2, $color-accent-2);
+				font-family: $font-bold;
+				text-transform: uppercase;
+				font-size: $font-size-base;
+				letter-spacing: $letter-spacing-none;
+				transition: $transition-base;
+				box-shadow: none;
+				padding: $spacing-xs 0;
+				text-shadow: none;
+				box-sizing: content-box;
+				border-radius: $border-radius-sm;
+
+				&:hover {
+					background-color: var(--tnt-accent-color, $color-accent);
+					color: var(--tnt-accent-color-2, $color-accent-2);
+					border-color: var(--tnt-accent-color, $color-accent);
+					opacity: 0.9;
+				}
+
+				&:focus {
+					outline: none;
+				}
+			}
+		}
+	}
+
+	.forgetmenot {
+		margin: 0 0 $spacing-sm 0;
+	}
+
+	#nav,
+	#backtoblog {
+		margin: 0;
+		padding: 0;
+
+		a {
+			font-size: $font-size-sm;
+			color: $color-text;
+
+			&:hover {
+				color: var(--tnt-accent-color, $color-accent);
+			}
+		}
+	}
+
+	#nav {
+		margin: 10px 0 0 0;
+	}
+}
+
+#loginform {
+	padding: 0;
+	margin: 0;
+	background: transparent;
+	border: none;
+	box-shadow: none;
+}
+
+// ============================================
+// Form Inputs
+// ============================================
+
+input {
+	&[type="text"]:focus,
+	&[type="password"]:focus,
+	&[type="checkbox"]:focus {
+		border-color: var(--tnt-accent-color, $color-accent);
+		box-shadow: 0 0 0 1px var(--tnt-accent-color, $color-accent);
+	}
+
+	&[type="checkbox"] {
+		border-color: var(--tnt-accent-color, $color-accent);
+		color: var(--tnt-accent-color, $color-accent);
+		height: 1em;
+		width: 1em;
+	}
+}
+
+// ============================================
+// Login Footer
+// ============================================
+
+.tnt-login-footer {
+	text-align: center;
+	margin-top: $spacing-xl;
+	margin-bottom: $spacing-xl;
+	padding-top: $spacing-lg;
+	border-top: 1px solid rgba($color-text, 0.1);
+
+	p {
+		font-family: $font-book;
+		font-size: betterClamp(14, 16);
+		color: rgba($color-text, 0.7);
+		margin: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 5px;
+	}
+
+	.tnt-footer-logo-link {
+		display: inline-flex;
+		align-items: center;
+		text-decoration: none;
+		color: inherit;
+		transition: color 0.3s linear;
+
+		@include hover {
+			&:is(:hover, :focus-visible) {
+				color: $color-primary;
+			}
+		}
+
+		svg {
+			height: 1em;
+			width: auto;
+			vertical-align: middle;
+			display: inline-block;
+		}
+	}
+}

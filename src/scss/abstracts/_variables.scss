@@ -1,0 +1,56 @@
+// ============================================
+// Variables
+// ============================================
+
+// Colors
+$color-primary: #3c73ff;
+$color-primary-hover: #424858;
+$color-text: #242b31;
+$color-text-dark: #111;
+$color-bg: #e1ecf8;
+$color-bg-light: #f9f9f9;
+$color-white: #fff;
+$color-error: #c42229;
+$color-border: #333;
+
+$color-accent: #1eafe5;
+$color-accent-2: #f9f9f9;
+
+// Fonts
+$font-bold: "Gotham-Bold", sans-serif;
+$font-book: "Gotham-Book", sans-serif;
+
+// Spacing
+$spacing-xs: 5px;
+$spacing-sm: 15px;
+$spacing-md: 20px;
+$spacing-lg: 24px;
+$spacing-xl: 26px;
+$spacing-xxl: 200px;
+
+// Typography
+$font-size-sm: 12px;
+$font-size-md: 20px;
+$font-size-base: 13px;
+$letter-spacing-none: 0em;
+$letter-spacing-sm: 1px;
+
+// Borders
+$border-radius-sm: 4px;
+$border-radius-lg: 32px;
+$border-radius-none: 0;
+$border-width-sm: 1px;
+$border-width-md: 4px;
+
+// Transitions
+$transition-base: all 0.3s ease;
+
+// Paths
+$path-fonts: "../../src/gotham";
+$path-images: "../../assets/images";
+
+// Breakpoints
+$breakpoint-mobile: 968px;
+
+// Opacity
+$opacity-disabled: 0.4;

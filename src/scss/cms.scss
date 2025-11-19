@@ -1,0 +1,448 @@
+// ============================================
+// Imports
+// ============================================
+
+@use "abstracts" as *;
+
+// ============================================
+// Base Styles
+// ============================================
+
+html {
+	background-color: $color-bg-light;
+}
+
+body {
+	color: $color-text;
+}
+
+// ============================================
+// Page Title Actions
+// ============================================
+
+.wrap {
+	.add-new-h2,
+	.page-title-action {
+		background-color: $color-text;
+		color: $color-bg-light;
+		border: 0;
+		border-radius: $border-radius-sm;
+
+		&:active {
+			background-color: $color-text;
+			color: $color-bg-light;
+		}
+
+		&:hover {
+			background: $color-primary;
+			border: 0;
+			color: $color-bg-light;
+		}
+	}
+}
+
+// ============================================
+// Form Inputs
+// ============================================
+
+input {
+	&[type="radio"]:checked:before {
+		background-color: $color-primary;
+	}
+
+	&[type="checkbox"]:checked:before {
+		color: $color-primary;
+	}
+
+	&[type="text"]:focus,
+	&[type="password"]:focus,
+	&[type="checkbox"]:focus,
+	&[type="color"]:focus,
+	&[type="date"]:focus,
+	&[type="datetime"]:focus,
+	&[type="datetime-local"]:focus,
+	&[type="email"]:focus,
+	&[type="month"]:focus,
+	&[type="number"]:focus,
+	&[type="radio"]:focus,
+	&[type="tel"]:focus,
+	&[type="time"]:focus,
+	&[type="url"]:focus,
+	&[type="week"]:focus,
+	&[type="search"]:focus {
+		@include input-focus;
+	}
+}
+
+select:focus,
+textarea:focus {
+	@include input-focus;
+}
+
+// ============================================
+// Admin Bar (Top)
+// ============================================
+
+#wpadminbar {
+	background: $color-text;
+
+	.ab-top-menu {
+		> li {
+			&.hover > .ab-item,
+			> .ab-item:focus {
+				background-color: $color-bg-light;
+				color: $color-primary;
+			}
+		}
+	}
+
+	&:not(.mobile) .ab-top-menu > li {
+		&:hover > .ab-item,
+		> .ab-item:focus {
+			background-color: $color-bg-light;
+			color: $color-primary;
+		}
+	}
+
+	&.nojq .quicklinks .ab-top-menu > li > .ab-item:focus {
+		background-color: $color-bg-light;
+		color: $color-primary;
+	}
+
+	.menupop .ab-sub-wrapper,
+	.shortlink-input {
+		background-color: $color-text;
+	}
+
+	.quicklinks {
+		.ab-sub-wrapper .menupop.hover > a,
+		.menupop {
+			ul li a {
+				&:focus,
+				&:hover {
+					color: $color-primary;
+
+					strong {
+						color: $color-primary;
+					}
+				}
+			}
+
+			&.hover ul li a {
+				&:focus,
+				&:hover {
+					color: $color-primary;
+				}
+			}
+		}
+	}
+
+	&.nojs .quicklinks .menupop:hover ul li a {
+		&:focus,
+		&:hover {
+			color: $color-primary;
+		}
+	}
+
+	li {
+		#adminbarsearch.adminbar-focused:before,
+		.ab-item:focus:before,
+		a:focus .ab-icon:before,
+		&.hover .ab-icon:before,
+		&.hover .ab-item:before,
+		&:hover {
+			#adminbarsearch:before,
+			.ab-icon:before,
+			.ab-item:before {
+				color: $color-primary;
+			}
+		}
+	}
+}
+
+// ============================================
+// Admin Menu (Left Sidebar)
+// ============================================
+
+#adminmenu,
+#adminmenu .wp-submenu,
+#adminmenuback,
+#adminmenuwrap {
+	background-color: $color-text;
+}
+
+#adminmenu {
+	.wp-has-current-submenu {
+		.wp-submenu {
+			background-color: $color-text-dark;
+
+			&.sub-open,
+			&.opensub {
+				background-color: $color-text-dark;
+			}
+		}
+
+		&.opensub .wp-submenu {
+			background-color: $color-text-dark;
+		}
+
+		a.wp-has-current-submenu:focus + .wp-submenu {
+			background-color: $color-text-dark;
+		}
+	}
+
+	.no-js li.wp-has-current-submenu:hover .wp-submenu {
+		background-color: $color-text-dark;
+	}
+
+	li {
+		&.menu-top {
+			&:hover,
+			&.opensub > a.menu-top {
+				background-color: $color-bg-light;
+				color: $color-primary;
+			}
+
+			> a.menu-top:focus {
+				background-color: $color-bg-light;
+				color: $color-primary;
+			}
+		}
+
+		a {
+			&:hover,
+			&:focus {
+				color: $color-primary;
+			}
+
+			&:focus div.wp-menu-image:before {
+				color: $color-primary;
+			}
+		}
+
+		&.opensub div.wp-menu-image:before,
+		&:hover div.wp-menu-image:before {
+			color: $color-primary;
+		}
+	}
+
+	.wp-submenu {
+		a {
+			&:focus,
+			&:hover {
+				color: $color-primary;
+			}
+		}
+	}
+
+	li.current,
+	li.wp-has-current-submenu {
+		a.menu-top {
+			color: $color-bg-light;
+			background-color: $color-primary;
+			font-weight: bold;
+
+			& .wp-menu-image {
+				&::before {
+					color: $color-bg-light;
+				}
+			}
+		}
+	}
+
+	.wp-menu-arrow,
+	.wp-menu-arrow div {
+		background-color: $color-bg-light;
+		color: $color-primary;
+	}
+}
+
+.folded #adminmenu {
+	li.current.menu-top,
+	li.wp-has-current-submenu {
+		background-color: $color-bg-light;
+		color: $color-primary;
+	}
+}
+
+// ============================================
+// WordPress Footer
+// ============================================
+
+#wpfooter a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+// ============================================
+// Links & Buttons
+// ============================================
+
+a {
+	color: $color-primary;
+
+	&:active,
+	&:hover {
+		color: $color-text;
+	}
+
+	@include focus-reset;
+
+	&:focus .media-icon img {
+		box-shadow: none;
+	}
+}
+
+// WordPress Core UI Buttons
+.wp-core-ui {
+	.button {
+		color: $color-text;
+		border-color: $color-text;
+	}
+
+	.button-primary {
+		@include button-primary-base;
+		@include button-primary-states;
+
+		&.button-hero {
+			box-shadow: none;
+
+			&.active,
+			&.active:focus,
+			&.active:hover,
+			&:active {
+				text-shadow: none;
+				box-shadow: none;
+				border-radius: $border-radius-none;
+				border: 0;
+				background-color: $color-primary;
+			}
+		}
+	}
+}
+
+// ============================================
+// Plugin Updates
+// ============================================
+
+.plugin-update-tr.active td,
+.plugins .active th.check-column {
+	border-left: $border-width-md solid $color-primary;
+}
+
+// ============================================
+// ACF Icons
+// ============================================
+
+a.acf-icon {
+	color: $color-text;
+	border-color: $color-text;
+
+	&:hover {
+		background-color: $color-primary;
+
+		&.-minus,
+		&.-cancel {
+			border-color: $color-error;
+			background-color: $color-error;
+		}
+
+		&.dark {
+			background-color: $color-primary;
+			color: $color-bg-light;
+
+			&.-minus,
+			&.-cancel {
+				border-color: $color-error;
+				background-color: $color-error;
+				color: $color-bg-light;
+			}
+		}
+	}
+}
+
+// ============================================
+// ACF Tables & Flexible Content
+// ============================================
+
+.acf-flexible-content {
+	.layout {
+		.acf-fc-layout-handle {
+			background-color: $color-bg-light;
+			color: $color-text;
+			font-weight: bold;
+			letter-spacing: $letter-spacing-sm;
+			text-transform: uppercase;
+			border-bottom: $color-text solid $border-width-sm;
+
+			&:hover {
+				background-color: $color-primary;
+				color: $color-bg-light;
+			}
+		}
+
+		.acf-fc-layout-order {
+			background-color: $color-text;
+			color: $color-bg-light;
+		}
+	}
+}
+
+.acf-row-handle {
+	&.remove {
+		background-color: $color-bg-light;
+	}
+
+	&.order {
+		background-color: $color-bg-light;
+		color: $color-text;
+
+		&:hover {
+			background-color: $color-primary;
+			color: $color-bg-light;
+		}
+	}
+}
+
+.acf-table > thead > tr > th,
+.acf-field .acf-label {
+	label {
+		color: $color-text;
+		font-weight: bold;
+		letter-spacing: $letter-spacing-sm;
+		text-transform: uppercase;
+	}
+
+	p {
+		font-style: italic;
+		color: $color-text;
+	}
+}
+
+.acf-fc-popup {
+	background: $color-bg-light;
+	box-shadow: none;
+	border-radius: $border-radius-none;
+
+	&:before {
+		border-top-color: $color-bg-light;
+	}
+
+	ul li {
+		a {
+			color: $color-text;
+			font-weight: bold;
+
+			&:hover {
+				background: $color-primary;
+				text-shadow: none;
+			}
+		}
+
+		&:first-child a,
+		&:last-child a,
+		&:only-child a {
+			border-radius: $border-radius-none;
+		}
+	}
+}

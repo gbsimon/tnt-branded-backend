@@ -1,0 +1,92 @@
+// ============================================
+// Mixins
+// ============================================
+
+@use "variables" as *;
+
+// Font Face Declaration
+@mixin font-face($name, $filename) {
+	@font-face {
+		font-family: $name;
+		src: url("#{$path-fonts}/#{$filename}.eot?#iefix") format("embedded-opentype"), url("#{$path-fonts}/#{$filename}.otf") format("opentype"), url("#{$path-fonts}/#{$filename}.woff") format("woff"), url("#{$path-fonts}/#{$filename}.ttf") format("truetype"), url("#{$path-fonts}/#{$filename}.svg##{$name}") format("svg");
+		font-weight: normal;
+		font-style: normal;
+	}
+}
+
+// Button Reset (removes default WordPress button styles)
+@mixin button-reset {
+	border: 0;
+	box-shadow: none;
+	text-shadow: none;
+	border-radius: $border-radius-none;
+}
+
+// Primary Button Base
+@mixin button-primary-base {
+	@include button-reset;
+	color: $color-bg-light;
+	background-color: $color-text;
+	cursor: pointer;
+}
+
+// Primary Button States
+@mixin button-primary-states {
+	&.active,
+	&.active:focus,
+	&.active:hover,
+	&:active,
+	&.focus,
+	&.hover,
+	&:focus,
+	&:hover {
+		background-color: $color-primary;
+		@include button-reset;
+	}
+
+	&-disabled,
+	&.disabled,
+	&:disabled,
+	&[disabled] {
+		color: $color-bg-light !important;
+		background-color: $color-primary !important;
+		border: none;
+		text-shadow: none;
+		opacity: $opacity-disabled;
+		filter: alpha(opacity=40);
+	}
+}
+
+// Focus State (removes box-shadow)
+@mixin focus-reset {
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+// Input Focus States
+@mixin input-focus {
+	border-color: $color-border;
+	box-shadow: none;
+}
+
+// CSS Custom Properties for dynamic colors
+@mixin tnt-accent-color {
+	color: var(--tnt-accent-color, $color-accent);
+}
+
+@mixin tnt-accent-color-2 {
+	color: var(--tnt-accent-color-2, $color-accent-2);
+}
+
+@mixin tnt-accent-bg {
+	background-color: var(--tnt-accent-color, $color-accent);
+}
+
+@mixin tnt-accent-bg-2 {
+	background-color: var(--tnt-accent-color-2, $color-accent-2);
+}
+
+@mixin tnt-accent-border {
+	border-color: var(--tnt-accent-color, $color-accent);
+}

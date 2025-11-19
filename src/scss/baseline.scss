@@ -1,0 +1,59 @@
+@use "abstracts" as *;
+
+:root {
+	accent-color: var(--tnt-accent-color, $color-accent);
+	caret-color: var(--tnt-accent-color, $color-accent);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	margin-block-start: none;
+	margin-block-end: none;
+	padding: 0;
+	font: inherit;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	image-rendering: -webkit-optimize-contrast;
+	font-feature-settings: "liga" 1;
+	scroll-behavior: smooth;
+}
+
+html {
+	//font-size: 62.5%; /* so 1rem = 10px */
+	font-family: $font-book;
+	color: $color-text;
+	text-wrap: pretty;
+}
+
+body {
+	background: $color-bg-light;
+	overflow-x: hidden;
+	font-size: betterClamp(14, 16);
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+::selection {
+	background: var(--tnt-accent-color, $color-accent);
+	color: var(--tnt-accent-color-2, $color-accent-2);
+}
+
+*:focus {
+	border: none;
+	outline-color: var(--tnt-accent-color, $color-accent);
+	outline-width: 0.1rem;
+	outline-offset: 0.4rem;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	/* width: 1em;
+	height: 1em; */
+}
