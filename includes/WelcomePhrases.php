@@ -31,21 +31,21 @@ function tnt_get_welcome_phrases($lang = null) {
 	$phrases = array(
 		'fr' => array(
 			'greeting' => array(
-				'Salut !',
-				'Allô !',
-				'Bonjour !',
-				'Hey !',
-				'Coucou !',
-				'Salutations !',
+				'Salut&nbsp;!',
+				'Allô&nbsp;!',
+				'Bonjour&nbsp;!',
+				'Hey&nbsp;!',
+				'Coucou&nbsp;!',
+				'Salutations&nbsp;!',
 			),
 			'main_message' => array(
 				'Bienvenue sur votre site.',
 				'Ravi de vous revoir.',
 				'Prêt à continuer ?',
 				'On reprend où on en était ?',
-				'Bon retour !',
+				'Bon retour&nbsp;!',
 				'Tout est prêt pour vous.',
-				'C\'est parti !',
+				'C\'est parti&nbsp;!',
 			),
 			'sub_message' => array(
 				'👋',

@@ -49,11 +49,16 @@ input {
 	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 	overflow: hidden;
 	min-height: 600px;
-	max-width: 1000px;
 	margin: 0 auto;
 	width: 100%;
 	padding: 0;
 	position: relative;
+
+	max-width: 380px;
+
+	@include mq(m) {
+		max-width: 1000px;
+	}
 
 	// Footer should be full width at bottom
 	.tnt-login-footer {
@@ -104,17 +109,18 @@ input {
 
 		text-wrap: balance;
 	}
+
 	h2 {
-		font-size: betterClamp(64);
+		font-size: betterClamp(48, 64);
 	}
 	h3 {
-		font-size: betterClamp(48);
+		font-size: betterClamp(32, 48);
 	}
 
 	p {
 		font-family: $font-book;
 		color: var(--tnt-accent-color-2, $color-accent-2);
-		font-size: betterClamp(40);
+		font-size: betterClamp(28, 40);
 		margin: $spacing-md 0 0 0;
 		margin-block-end: 0.5em;
 	}

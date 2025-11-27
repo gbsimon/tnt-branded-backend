@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Admin Wordpress sur mesure par tom & tom 
+ * Plugin Name: Admin Wordpress sur mesure par tom & tom
  * Plugin URI: https://tomtom.design
  * Description: Un backend juste pour vous!
  * Version: 2.0.0
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 function tnt_check_wp_version() {
 	global $wp_version;
 	$required_wp_version = '5.0';
-	
+
 	if ( version_compare( $wp_version, $required_wp_version, '<' ) ) {
 		add_action( 'admin_notices', 'tnt_wp_version_notice' );
 		return false;
@@ -30,7 +30,7 @@ function tnt_check_wp_version() {
 // Check PHP version
 function tnt_check_php_version() {
 	$required_php_version = '7.4';
-	
+
 	if ( version_compare( PHP_VERSION, $required_php_version, '<' ) ) {
 		add_action( 'admin_notices', 'tnt_php_version_notice' );
 		return false;
@@ -67,7 +67,7 @@ if ( tnt_check_wp_version() && tnt_check_php_version() ) {
 		'includes/AdminPage.php',
 		'includes/AdminFooter.php',
 	);
-	
+
 	foreach ( $plugin_files as $file ) {
 		$file_path = plugin_dir_path( __FILE__ ) . $file;
 		if ( file_exists( $file_path ) ) {
@@ -75,5 +75,3 @@ if ( tnt_check_wp_version() && tnt_check_php_version() ) {
 		}
 	}
 }
-
-?>

@@ -41,6 +41,15 @@ body {
 	}
 }
 
+/*----------------------------------------------------
+/*	settings_page_tnt-branded-backend
+/*---------------------------------------------------*/
+.settings_page_tnt-branded-backend {
+	form {
+		max-width: 600px;
+	}
+}
+
 // ============================================
 // Form Inputs
 // ============================================
@@ -443,6 +452,146 @@ a.acf-icon {
 		&:last-child a,
 		&:only-child a {
 			border-radius: $border-radius-none;
+		}
+	}
+}
+
+// ============================================
+// Dashboard Widget
+// ============================================
+
+#dashboard-widgets {
+	.tnt-dashboard-widget {
+		.tnt-dashboard-widget-content {
+			text-align: center;
+			padding: 20px 0;
+		}
+
+		.tnt-dashboard-icon {
+			margin: 0 auto 20px;
+			width: 64px;
+			height: 64px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: $color-primary;
+			border-radius: 50%;
+			color: $color-bg-light;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+			svg {
+				width: 32px;
+				height: 32px;
+			}
+		}
+
+		.tnt-dashboard-title {
+			font-size: 22px;
+			font-weight: 800;
+			margin: 0 0 12px 0;
+			color: $color-text;
+			line-height: 1.4;
+		}
+
+		.tnt-dashboard-message {
+			font-size: 14px;
+			line-height: 1.6;
+			color: #646970;
+			margin: 0 0 20px 0;
+			padding: 0 10px;
+		}
+
+		.tnt-dashboard-contact {
+			margin: 20px 0;
+			padding: 16px;
+			background: #f6f7f7;
+			border-radius: $border-radius-sm;
+			border-left: 3px solid $color-primary;
+
+			.tnt-contact-form {
+				margin: 0;
+			}
+
+			.tnt-form-field {
+				margin: 0 0 12px 0;
+
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+
+				label {
+					display: block;
+					margin-bottom: 4px;
+					font-size: 12px;
+					font-weight: 600;
+					color: $color-text;
+				}
+
+				input[type="text"],
+				input[type="email"],
+				textarea {
+					width: 100%;
+					padding: 6px 8px;
+					font-size: 13px;
+					line-height: 1.5;
+					color: $color-text;
+					background: $color-white;
+					border: 1px solid #ddd;
+					border-radius: $border-radius-sm;
+					box-sizing: border-box;
+					transition: $transition-base;
+
+					&:focus {
+						border-color: $color-primary;
+						outline: none;
+						box-shadow: 0 0 0 1px $color-primary;
+					}
+				}
+
+				textarea {
+					resize: vertical;
+					min-height: 60px;
+				}
+			}
+
+			.tnt-form-submit {
+				margin: 12px 0 0 0;
+				text-align: center;
+			}
+
+			.tnt-form-email-link {
+				margin: 10px 0 0 0;
+				text-align: center;
+				font-size: 12px;
+				color: #646970;
+				line-height: 1.5;
+
+				a {
+					color: $color-primary;
+					text-decoration: none;
+					font-weight: 500;
+					transition: $transition-base;
+
+					&:hover {
+						text-decoration: underline;
+						opacity: 0.8;
+					}
+				}
+			}
+		}
+
+		.tnt-dashboard-actions {
+			margin-top: 20px;
+			padding-top: 20px;
+			border-top: 1px solid #ddd;
+		}
+		.tnt-dashboard-settings-btn {
+			width: 100%;
+			text-align: center;
+			padding: 8px 16px;
+			font-size: 13px;
+			border-radius: $border-radius-sm;
+			transition: $transition-base;
 		}
 	}
 }
